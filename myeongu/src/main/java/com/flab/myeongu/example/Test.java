@@ -27,8 +27,5 @@ public class Test {
         runCommand.doCommand("think", "world");
         // think about world
 
-
-        System.out.println("----------------------------------------------------------------");
-
       }
 }
