@@ -1,6 +1,7 @@
 package com.flab.myeongu.example;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.flab.myeongu.example.aop.LogExecutionTimeCheck;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -10,15 +11,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Component
+@RequiredArgsConstructor
 public class RunCommand {
 
     private final Map<String, Method> methodMap = new LinkedHashMap<>();
     private final SomeObject someObject;
-
-    @Autowired
-    public RunCommand(SomeObject someObject) {
-        this.someObject = someObject;
-    }
 
     @PostConstruct
     public void init() {
@@ -32,6 +29,7 @@ public class RunCommand {
         }
     }
 
+    @LogExecutionTimeCheck
     public void printCommands() {
 
         for (String s : methodMap.keySet()) {
@@ -40,6 +38,7 @@ public class RunCommand {
 
     }
 
+    @LogExecutionTimeCheck
     public void doCommand(String action, String word) throws InvocationTargetException, IllegalAccessException {
 
         Method method = methodMap.get(action);
