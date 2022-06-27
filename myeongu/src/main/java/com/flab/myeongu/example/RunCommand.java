@@ -1,6 +1,7 @@
 package com.flab.myeongu.example;
 
-import com.flab.myeongu.example.aop.LogExecutionTimeCheck;
+import com.flab.myeongu.example.annotation.Command;
+import com.flab.myeongu.example.annotation.LogExecutionTimeCheck;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

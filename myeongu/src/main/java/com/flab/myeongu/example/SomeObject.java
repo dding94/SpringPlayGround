@@ -1,5 +1,6 @@
 package com.flab.myeongu.example;
 
+import com.flab.myeongu.example.annotation.Command;
 import org.springframework.stereotype.Component;
 
 @Component

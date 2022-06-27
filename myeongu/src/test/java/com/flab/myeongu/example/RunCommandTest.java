@@ -1,18 +1,16 @@
 package com.flab.myeongu.example;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import java.lang.reflect.InvocationTargetException;
 
-import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class RunCommandTest {
 
-    ApplicationContext ac = new AnnotationConfigApplicationContext(Config.class);
-    RunCommand runCommand = ac.getBean("runCommand", RunCommand.class);
+    @Autowired
+    RunCommand runCommand;
 
     @Test
     void printCommands() {

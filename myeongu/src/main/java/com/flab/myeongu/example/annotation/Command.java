@@ -1,4 +1,4 @@
-package com.flab.myeongu.example;
+package com.flab.myeongu.example.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
