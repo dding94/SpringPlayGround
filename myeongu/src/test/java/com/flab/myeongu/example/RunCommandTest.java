@@ -25,12 +25,19 @@ class RunCommandTest {
 
     @Test
     void doCommand() throws InvocationTargetException, IllegalAccessException {
-        String doSay = runCommand.doCommand("say", "hello");
-        String thinkWorld = runCommand.doCommand("think", "world");
+        //given
+        String actionSay = "say";
+        String actionThink = "think";
+        String noAction = "";
 
-        assertThat(doSay).isEqualTo("say hello");
-        assertThat(thinkWorld).isEqualTo("think about world");
+        //when
+        String resultSay = runCommand.doCommand(actionSay, "hello");
+        String resultThink = runCommand.doCommand(actionThink, "world");
+
+        //then
+        assertThat(resultSay).isEqualTo("say hello");
+        assertThat(resultThink).isEqualTo("think about world");
         assertThrows(IllegalArgumentException.class,
-                () -> runCommand.doCommand("noAction", "think"));
+                () -> runCommand.doCommand(noAction, "think"));
     }
 }
