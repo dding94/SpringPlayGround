@@ -7,18 +7,18 @@ import org.springframework.stereotype.Component;
 public class SomeObject {
 
     @Command(action = "say")
-    public void doSay(String word) {
-        System.out.println("say " + word);
+    public String doSay(String word) {
+        return "say" + " " + word;
     }
 
     @Command(action = "tell")
-    public void doTell(String word) {
-        System.out.println("tell " + word);
+    public String doTell(String word) {
+        return "tell" + " " + word;
     }
 
     @Command(action = "think")
-    public void thinkAbout(String word) {
-        System.out.println("think about " + word);
+    public String thinkAbout(String word) {
+        return "think about" + " " + word;
     }
 
 }

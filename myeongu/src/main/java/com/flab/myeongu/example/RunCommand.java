@@ -40,7 +40,7 @@ public class RunCommand {
     }
 
     @LogExecutionTimeCheck
-    public void doCommand(String action, String word) throws InvocationTargetException, IllegalAccessException {
+    public String doCommand(String action, String word) throws InvocationTargetException, IllegalAccessException {
 
         Method method = methodMap.get(action);
 
@@ -48,7 +48,7 @@ public class RunCommand {
             throw new IllegalArgumentException("존재하지 않는 action 입니다.");
         }
 
-        method.invoke(someObject, word);
+        return (String) method.invoke(someObject, word);
     }
 
 }

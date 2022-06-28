@@ -18,7 +18,7 @@ public class LogAspect {
         StopWatch stopWatch = new StopWatch("logExecutionTime");
         stopWatch.start();
 
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         Object proceed = joinPoint.proceed();
 
         stopWatch.stop();
