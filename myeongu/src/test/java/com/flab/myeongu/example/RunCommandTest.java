@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RunCommandTest {
 
     @Autowired
-    RunCommand runCommand;
+    private RunCommand runCommand;
 
     @Test
     void printCommands() {
