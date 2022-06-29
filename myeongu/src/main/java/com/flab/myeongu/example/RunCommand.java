@@ -41,7 +41,7 @@ public class RunCommand {
 
         Method method = methodMap.get(action);
 
-        if (method == null) {
+        if (isExistMethod(method)) {
             throw new IllegalArgumentException("존재하지 않는 action 입니다.");
         }
 
@@ -53,6 +53,10 @@ public class RunCommand {
             String action = method.getDeclaredAnnotation(Command.class).action();
             methodMap.put(action, method);
         }
+    }
+
+    private boolean isExistMethod(Method method) {
+        return method == null;
     }
 
 }
