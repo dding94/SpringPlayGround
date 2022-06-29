@@ -23,10 +23,7 @@ public class RunCommand {
         Method[] methods = someObject.getClass().getDeclaredMethods();
 
         for (Method method : methods) {
-            if (method.isAnnotationPresent(Command.class)) {
-                String action = method.getDeclaredAnnotation(Command.class).action();
-                methodMap.put(action, method);
-            }
+            initMethodMap(method);
         }
     }
 
@@ -49,6 +46,13 @@ public class RunCommand {
         }
 
         return (String) method.invoke(someObject, word);
+    }
+
+    private void initMethodMap(Method method) {
+        if (method.isAnnotationPresent(Command.class)) {
+            String action = method.getDeclaredAnnotation(Command.class).action();
+            methodMap.put(action, method);
+        }
     }
 
 }
